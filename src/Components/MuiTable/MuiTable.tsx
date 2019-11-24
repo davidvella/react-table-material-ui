@@ -66,7 +66,7 @@ const StyledTableRow = withStyles((theme: Theme) =>
  * 
  * @param param0 
  */
-export const MuiTable: FC<MuiTableProps> = ({ columns, data, initialPageSize }: MuiTableProps) => {
+export const MuiTable: FC<MuiTableProps> = ({ columns, data, initialPageSize, rowsPerPageOptions }: MuiTableProps) => {
   // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
@@ -144,6 +144,7 @@ export const MuiTable: FC<MuiTableProps> = ({ columns, data, initialPageSize }: 
         </Table>
       </div>
       <MuiTablePagination
+        rowsPerPageOptions={rowsPerPageOptions}
         canNextPage={canNextPage}
         canPreviousPage={canPreviousPage}
         onClickNext={() => nextPage()}
