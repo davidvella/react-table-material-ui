@@ -14,7 +14,7 @@ import {
   UseResizeColumnsHeaderProps,
   usePagination
 } from 'react-table'
-import { makeStyles, createStyles, Theme, TableSortLabel,withStyles, Paper } from '@material-ui/core';
+import { makeStyles, createStyles, Theme, TableSortLabel, withStyles, Paper } from '@material-ui/core';
 import { MuiTableProps } from './MuiTable.types'
 import { MuiTablePagination } from '../MuiTablePagination/MuiTablePagination';
 
@@ -66,7 +66,19 @@ const StyledTableRow = withStyles((theme: Theme) =>
  * 
  * @param param0 
  */
-export const MuiTable: FC<MuiTableProps> = ({ columns, data, initialPageSize, rowsPerPageOptions }: MuiTableProps) => {
+export const MuiTable: FC<MuiTableProps> = (props) => {
+  // Load values from props.
+  const {
+    columns, 
+    data, 
+    initialPageSize, 
+    rowsPerPageOptions,
+    serverSide = false,
+    pageCount,
+    serverSideFetchData,
+    serverSideSort
+  } = props;
+
   // Use the state and functions returned from useTable to build your UI
   const {
     getTableProps,
@@ -81,17 +93,43 @@ export const MuiTable: FC<MuiTableProps> = ({ columns, data, initialPageSize, ro
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageSize },
+    state: { pageSize, pageIndex, sortBy},
   } = useTable<object>(
     {
       columns,
       data,
-      initialState: { pageSize: initialPageSize },
+      initialState: { pageSize: initialPageSize, pageIndex: 0 }, // Pass our hoisted table state
+      manualPagination: serverSide, // Tell the usePagination
+      // hook that we'll handle our own data fetching
+      // This means we'll also have to provide our own
+      // pageCount.
+      pageCount: pageCount,
+      manualSorting: serverSide,// Tell the useSortBy
+      // hook that we'll sort our own data 
+      // This means we'll also have to provide our own
+      // pageCount.
     },
     useSortBy,
     usePagination
   ) as TableInstance<object>;
   const classes = useStyles();
+
+  // Listen for changes in pagination and use the state to fetch our new data
+  React.useEffect(() => {
+      if(serverSideSort){
+        global.console.log("Calling Sort Data");
+        serverSideSort(sortBy)
+      }
+  }, [serverSideSort,sortBy])
+
+  // Listen for changes in pagination and use the state to fetch our new data
+  React.useEffect(() => {
+    if(serverSideFetchData){
+      global.console.log("Calling Fetch Data");
+      serverSideFetchData( pageIndex, pageSize)
+    }
+  }, [serverSideFetchData, pageIndex, pageSize])
+
   // Render the UI for your table
   return (
     <Paper>

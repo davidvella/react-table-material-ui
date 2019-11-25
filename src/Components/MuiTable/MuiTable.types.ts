@@ -1,4 +1,4 @@
-import { Column } from "react-table";
+import { Column, Row, SortingRule } from "react-table";
 
 export interface MuiTableProps {
   /**
@@ -17,5 +17,26 @@ export interface MuiTableProps {
    * Customizes the options of the rows per page select field. If less than two options are available, no select field will be displayed.
    */
   rowsPerPageOptions?: Array<number>;
+  /**
+   * Enable remote data source
+   */
+  serverSide?: boolean;
+  /**
+   * User provided override for total number of pages
+   */
+  pageCount?: number;
+  /**
+   * Callback function to get data if serverSide is true.
+   */
+  serverSideFetchData?:(
+    pageIndex: number,
+    pageSize: number,
+  ) => void;
+  /**
+   * Callback function to sort data if serverSide is true.
+   */
+  serverSideSort?: (
+    sortBy: Array<SortingRule<any>>
+  ) => void
 
 }
