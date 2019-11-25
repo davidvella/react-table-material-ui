@@ -1,0 +1,460 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MuiTable /> should renders a basic table 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+  >
+    <div
+      class="makeStyles-tableWrapper-2"
+    >
+      <table
+        class="MuiTable-root"
+      >
+        <thead
+          class="MuiTableHead-root"
+        >
+          <tr
+            class="MuiTableRow-root MuiTableRow-head"
+          >
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              colspan="2"
+              scope="col"
+            >
+              <span
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTableSortLabel-root"
+                hidden=""
+                role="button"
+                tabindex="0"
+                title="Toggle SortBy"
+              >
+                Name
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+                  />
+                </svg>
+              </span>
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              colspan="4"
+              scope="col"
+            >
+              <span
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTableSortLabel-root"
+                hidden=""
+                role="button"
+                tabindex="0"
+                title="Toggle SortBy"
+              >
+                Info
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+                  />
+                </svg>
+              </span>
+            </th>
+          </tr>
+          <tr
+            class="MuiTableRow-root MuiTableRow-head"
+          >
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              colspan="1"
+              scope="col"
+            >
+              <span
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTableSortLabel-root"
+                role="button"
+                style="cursor: pointer;"
+                tabindex="0"
+                title="Toggle SortBy"
+              >
+                First Name
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+                  />
+                </svg>
+              </span>
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              colspan="1"
+              scope="col"
+            >
+              <span
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTableSortLabel-root"
+                role="button"
+                style="cursor: pointer;"
+                tabindex="0"
+                title="Toggle SortBy"
+              >
+                Last Name
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+                  />
+                </svg>
+              </span>
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              colspan="1"
+              scope="col"
+            >
+              <span
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTableSortLabel-root"
+                role="button"
+                style="cursor: pointer;"
+                tabindex="0"
+                title="Toggle SortBy"
+              >
+                Age
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+                  />
+                </svg>
+              </span>
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              colspan="1"
+              scope="col"
+            >
+              <span
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTableSortLabel-root"
+                role="button"
+                style="cursor: pointer;"
+                tabindex="0"
+                title="Toggle SortBy"
+              >
+                Visits
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+                  />
+                </svg>
+              </span>
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              colspan="1"
+              scope="col"
+            >
+              <span
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTableSortLabel-root"
+                role="button"
+                style="cursor: pointer;"
+                tabindex="0"
+                title="Toggle SortBy"
+              >
+                Status
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+                  />
+                </svg>
+              </span>
+            </th>
+            <th
+              class="MuiTableCell-root MuiTableCell-head"
+              colspan="1"
+              scope="col"
+            >
+              <span
+                aria-disabled="false"
+                class="MuiButtonBase-root MuiTableSortLabel-root"
+                role="button"
+                style="cursor: pointer;"
+                tabindex="0"
+                title="Toggle SortBy"
+              >
+                Profile Progress
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
+                  focusable="false"
+                  role="presentation"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
+                  />
+                </svg>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="MuiTableBody-root"
+        >
+          <tr
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-68"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              tanner
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              linsley
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              29
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              100
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              In Relationship
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              50
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-68"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              derek
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              perkins
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              40
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              40
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              Single
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              80
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-68"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              joe
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              bergevin
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              45
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              20
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              Complicated
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              10
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div
+      class="MuiToolbar-root MuiToolbar-regular makeStyles-root-69 makeStyles-toolbar-70 MuiToolbar-gutters"
+    >
+      <div
+        class="makeStyles-spacer-71"
+      />
+      <p
+        class="MuiTypography-root makeStyles-caption-72 MuiTypography-body2 MuiTypography-colorInherit"
+      >
+        Rows per page:
+      </p>
+      <div
+        class="MuiInputBase-root makeStyles-input-76 makeStyles-selectRoot-73"
+      >
+        <div
+          aria-haspopup="listbox"
+          aria-labelledby=" "
+          class="MuiSelect-root MuiSelect-select makeStyles-select-74 MuiSelect-selectMenu MuiInputBase-input MuiInputBase-inputSelect"
+          role="button"
+          tabindex="0"
+        >
+          50
+        </div>
+        <input
+          type="hidden"
+          value="50"
+        />
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSelect-icon makeStyles-selectIcon-75"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+      </div>
+      <div
+        class="makeStyles-actions-78"
+      >
+        <button
+          aria-label="previous page"
+          class="MuiButtonBase-root MuiIconButton-root Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          aria-label="next page"
+          class="MuiButtonBase-root MuiIconButton-root Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

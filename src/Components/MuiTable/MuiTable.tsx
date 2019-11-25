@@ -71,7 +71,8 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
   const {
     columns, 
     data, 
-    initialPageSize, 
+    // Default is 30
+    initialPageSize = 30, 
     rowsPerPageOptions,
     serverSide = false,
     pageCount,
@@ -117,7 +118,6 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
   // Listen for changes in pagination and use the state to fetch our new data
   React.useEffect(() => {
       if(serverSideSort){
-        global.console.log("Calling Sort Data");
         serverSideSort(sortBy)
       }
   }, [serverSideSort,sortBy])
@@ -125,7 +125,6 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
   // Listen for changes in pagination and use the state to fetch our new data
   React.useEffect(() => {
     if(serverSideFetchData){
-      global.console.log("Calling Fetch Data");
       serverSideFetchData( pageIndex, pageSize)
     }
   }, [serverSideFetchData, pageIndex, pageSize])

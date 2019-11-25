@@ -42,6 +42,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@types/mocha": "^5.2.7",
-    "mocha": "^6.2.2"
+    "mocha": "^6.2.2",
+    "snapshot-diff": "^0.6.1"
   }
 }
