@@ -12,7 +12,8 @@ import {
   UseFiltersColumnProps,
   ColumnInstance,
   UseResizeColumnsHeaderProps,
-  usePagination
+  usePagination,
+  useRowSelect
 } from 'react-table'
 import { makeStyles, createStyles, Theme, TableSortLabel, withStyles, Paper } from '@material-ui/core';
 import { MuiTableProps } from './MuiTable.types'
@@ -69,15 +70,16 @@ const StyledTableRow = withStyles((theme: Theme) =>
 export const MuiTable: FC<MuiTableProps> = (props) => {
   // Load values from props.
   const {
-    columns, 
-    data, 
+    columns,
+    data,
     // Default is 30
-    initialPageSize = 30, 
+    initialPageSize = 30,
     rowsPerPageOptions,
     serverSide = false,
     pageCount,
     serverSideFetchData,
-    serverSideSort
+    serverSideSort,
+    handleSelected
   } = props;
 
   // Use the state and functions returned from useTable to build your UI
@@ -94,7 +96,8 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
     nextPage,
     previousPage,
     setPageSize,
-    state: { pageSize, pageIndex, sortBy},
+    selectedFlatRows,
+    state: { pageSize, pageIndex, sortBy, selectedRowPaths },
   } = useTable<object>(
     {
       columns,
@@ -111,23 +114,31 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
       // pageCount.
     },
     useSortBy,
-    usePagination
+    usePagination,
+    useRowSelect
   ) as TableInstance<object>;
   const classes = useStyles();
 
   // Listen for changes in pagination and use the state to fetch our new data
   React.useEffect(() => {
-      if(serverSideSort){
-        serverSideSort(sortBy)
-      }
-  }, [serverSideSort,sortBy])
+    if (serverSideSort) {
+      serverSideSort(sortBy)
+    }
+  }, [serverSideSort, sortBy])
 
   // Listen for changes in pagination and use the state to fetch our new data
   React.useEffect(() => {
-    if(serverSideFetchData){
-      serverSideFetchData( pageIndex, pageSize)
+    if (serverSideFetchData) {
+      serverSideFetchData(pageIndex, pageSize)
     }
   }, [serverSideFetchData, pageIndex, pageSize])
+
+  // Listen for changes in pagination and use the state to fetch our new data
+  React.useEffect(() => {
+    if (handleSelected) {
+      handleSelected(selectedFlatRows);
+    }
+  }, [handleSelected,selectedFlatRows, selectedRowPaths])
 
   // Render the UI for your table
   return (
@@ -144,7 +155,7 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
                       <TableSortLabel
                         active={column.isSorted}
                         direction={column.isSortedDesc ? "desc" : "asc"}
-                        hidden={!column.canSort}
+                        hideSortIcon={column.disableSortBy}
                         {...column.getSortByToggleProps()}
                       >
                         {column.render('Header')}

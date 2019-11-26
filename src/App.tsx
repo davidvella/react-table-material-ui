@@ -2,13 +2,30 @@ import React from 'react';
 import makeData from './makeData';
 import { CellProps, SortingRule } from 'react-table';
 import { MuiTable } from './Components/MuiTable/MuiTable';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, Checkbox } from '@material-ui/core';
 
 const serverData = makeData(1000);
 
 const App: React.FC = () => {
   const columns: any = React.useMemo(
     () => [
+      // Let's make a column for selection
+      {
+        id: 'selection',
+        // The header can use the table's getToggleAllRowsSelectedProps method
+        // to render a checkbox
+        Header: ({ getToggleAllRowsSelectedProps }: CellProps<any>) => (<div>
+          <Checkbox {...getToggleAllRowsSelectedProps()} />
+        </div>),
+        // The cell can use the individual row's getToggleRowSelectedProps method
+        // to the render a checkbox
+        Cell: ({ row }: CellProps<any>) => (
+          <div>
+            <Checkbox {...row.getToggleRowSelectedProps()} />
+          </div>
+        ),
+        disableSortBy:true
+      },
       {
         Header: 'First Name',
         accessor: 'firstName'
@@ -77,7 +94,7 @@ const App: React.FC = () => {
     }, 1000)
   }, [])
 
-  
+
   // This will get called when the user click sort
   // You could fetch your data from literally anywhere,
   // even a server. But for this example, we'll just fake it.
@@ -108,8 +125,8 @@ const App: React.FC = () => {
         initialPageSize={50}
         serverSideFetchData={fetchData}
         pageCount={pageCount}
-        serverSide={true} 
-        serverSideSort={sortData}/>
+        serverSide={true}
+        serverSideSort={sortData} />
     </div>
   );
 }

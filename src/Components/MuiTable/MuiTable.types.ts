@@ -38,5 +38,11 @@ export interface MuiTableProps {
   serverSideSort?: (
     sortBy: Array<SortingRule<any>>
   ) => void
+  /**
+   * Callback function to get selected values
+   */
+  handleSelected?: (
+    selectedRows: Row<Object>[]
+  ) => void
 
 }
