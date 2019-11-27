@@ -39,9 +39,9 @@ export interface MuiTableProps {
     sortBy: Array<SortingRule<any>>
   ) => void
   /**
-   * Callback function to get selected values
+   * Callback function that triggers when row(s) are selected. function(currentRowsSelected: array, allRowsSelected: array) => void
    */
-  handleSelected?: (
+  onRowsSelect?: (
     selectedRows: Row<Object>[]
   ) => void
 

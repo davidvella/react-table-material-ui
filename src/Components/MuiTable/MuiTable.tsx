@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme: Theme) =>
     tableWrapper: {
       overflow: 'auto',
     },
+    selectedRow:{
+      background:'#c2dbff !important'
+    }
   }),
 );
 
@@ -79,7 +82,7 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
     pageCount,
     serverSideFetchData,
     serverSideSort,
-    handleSelected
+    onRowsSelect
   } = props;
 
   // Use the state and functions returned from useTable to build your UI
@@ -135,10 +138,10 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
 
   // Listen for changes in pagination and use the state to fetch our new data
   React.useEffect(() => {
-    if (handleSelected) {
-      handleSelected(selectedFlatRows);
+    if (onRowsSelect) {
+      onRowsSelect(selectedFlatRows);
     }
-  }, [handleSelected,selectedFlatRows, selectedRowPaths])
+  }, [onRowsSelect, selectedFlatRows, selectedRowPaths])
 
   // Render the UI for your table
   return (
@@ -176,7 +179,7 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
               (row, i) => {
                 prepareRow(row);
                 return (
-                  <StyledTableRow {...row.getRowProps()}>
+                  <StyledTableRow {...row.getRowProps()} className={row.isSelected ? classes.selectedRow : ''}>
                     {row.cells.map(cell => {
                       return (
                         <TableCell {...cell.getCellProps()} tabIndex={0}>
