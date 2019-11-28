@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 1,
     },
     tableWrapper: {
-      overflow: 'auto',
+      overflow: 'auto'
     },
     selectedRow: {
       background: '#c2dbff !important'
@@ -164,7 +164,7 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
   return (
     <Paper>
       <div className={classes.tableWrapper}>
-        <Table {...getTableProps()}>
+        <Table {...getTableProps()} stickyHeader>
           <TableHead>
             {headerGroups.map(headerGroup => (
               <TableRow {...headerGroup.getHeaderGroupProps()}>
