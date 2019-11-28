@@ -4,7 +4,7 @@ export interface MuiTableProps {
   /**
    * Columns used to describe table. Must be either an array of objects describing a column
    */
-  columns: Column<any>[];
+  columnsDef: Column<any>[];
   /**
    * Data used to describe table. Must be either an array containing objects of key/value pairs with values that are strings or numbers, or arrays of strings or numbers (Ex: data: [{"Name": "Joe", "Job Title": "Plumber", "Age": 30}, {"Name": "Jane", "Job Title": "Electrician", "Age": 45}] or data: [["Joe", "Plumber", 30], ["Jane", "Electrician", 45]])
    */
@@ -26,16 +26,21 @@ export interface MuiTableProps {
    */
   pageCount?: number;
   /**
-   * Callback function to get data if serverSide is true.
+   * Callback function that triggers when a page has changed. function(pageIndex: number) => void
    */
-  serverSideFetchData?:(
-    pageIndex: number,
-    pageSize: number,
+  onChangePage?:(
+    pageIndex: number
   ) => void;
   /**
-   * Callback function to sort data if serverSide is true.
+   * Callback function that triggers when the number of rows per page has changed. function(numberOfRows: number) => void
    */
-  serverSideSort?: (
+  onChangeRowsPerPage?:(
+    pageSize: number
+  ) => void;
+  /**
+   * Callback function that triggers when a column has been sorted.
+   */
+  onColumnSortChange?: (
     sortBy: Array<SortingRule<any>>
   ) => void
   /**
@@ -44,5 +49,7 @@ export interface MuiTableProps {
   onRowsSelect?: (
     selectedRows: Row<Object>[]
   ) => void
+
+  isRowSelectable?: boolean
 
 }

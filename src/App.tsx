@@ -2,30 +2,13 @@ import React from 'react';
 import makeData from './makeData';
 import { CellProps, SortingRule } from 'react-table';
 import { MuiTable } from './Components/MuiTable/MuiTable';
-import { CssBaseline, Checkbox } from '@material-ui/core';
+import { CssBaseline } from '@material-ui/core';
 
 const serverData = makeData(1000);
 
 const App: React.FC = () => {
   const columns: any = React.useMemo(
     () => [
-      // Let's make a column for selection
-      {
-        id: 'selection',
-        // The header can use the table's getToggleAllRowsSelectedProps method
-        // to render a checkbox
-        Header: ({ getToggleAllRowsSelectedProps }: CellProps<any>) => (<div>
-          <Checkbox {...getToggleAllRowsSelectedProps()} />
-        </div>),
-        // The cell can use the individual row's getToggleRowSelectedProps method
-        // to the render a checkbox
-        Cell: ({ row }: CellProps<any>) => (
-          <div>
-            <Checkbox {...row.getToggleRowSelectedProps()} />
-          </div>
-        ),
-        disableSortBy:true
-      },
       {
         Header: 'First Name',
         accessor: 'firstName'
@@ -70,7 +53,7 @@ const App: React.FC = () => {
   // This will get called when the table needs new data
   // You could fetch your data from literally anywhere,
   // even a server. But for this example, we'll just fake it.
-  const fetchData = React.useCallback((pageIndex: number, pageSize: number) => {
+  const fetchData = React.useCallback((pageIndex: number) => {
     // Give this fetch an ID
     const fetchID = ++fetchIdRef.current
 
@@ -81,13 +64,13 @@ const App: React.FC = () => {
     setTimeout(() => {
       // Only update the data if this is the latest fetch
       if (fetchID === fetchIdRef.current) {
-        const startRow = pageSize * pageIndex
-        const endRow = startRow + pageSize;
+        const startRow = 50 * pageIndex
+        const endRow = startRow + 50;
         setData(serverData.slice(startRow, endRow))
 
         // Your server could send back total page count.
         // For now we'll just fake it, too
-        setPageCount(Math.ceil(serverData.length / pageSize))
+        setPageCount(Math.ceil(serverData.length / 50))
 
         //setLoading(false)
       }
@@ -120,13 +103,13 @@ const App: React.FC = () => {
   return (
     <div>
       <CssBaseline />
-      <MuiTable columns={columns}
+      <MuiTable columnsDef={columns}
         data={data}
         initialPageSize={50}
-        serverSideFetchData={fetchData}
+        onChangePage={fetchData}
         pageCount={pageCount}
         serverSide={true}
-        serverSideSort={sortData} />
+        onColumnSortChange={sortData} />
     </div>
   );
 }

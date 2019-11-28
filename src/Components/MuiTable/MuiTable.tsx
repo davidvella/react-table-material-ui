@@ -13,9 +13,11 @@ import {
   ColumnInstance,
   UseResizeColumnsHeaderProps,
   usePagination,
-  useRowSelect
+  useRowSelect,
+  Column,
+  CellProps
 } from 'react-table'
-import { makeStyles, createStyles, Theme, TableSortLabel, withStyles, Paper } from '@material-ui/core';
+import { makeStyles, createStyles, Theme, TableSortLabel, withStyles, Paper, Checkbox } from '@material-ui/core';
 import { MuiTableProps } from './MuiTable.types'
 import { MuiTablePagination } from '../MuiTablePagination/MuiTablePagination';
 
@@ -29,7 +31,7 @@ interface TableColumn<D extends object = {}>
   UseFiltersColumnProps<D> { }
 
 /**
- * 
+ * Styles for the Table
  */
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -47,8 +49,8 @@ const useStyles = makeStyles((theme: Theme) =>
     tableWrapper: {
       overflow: 'auto',
     },
-    selectedRow:{
-      background:'#c2dbff !important'
+    selectedRow: {
+      background: '#c2dbff !important'
     }
   }),
 );
@@ -73,17 +75,25 @@ const StyledTableRow = withStyles((theme: Theme) =>
 export const MuiTable: FC<MuiTableProps> = (props) => {
   // Load values from props.
   const {
-    columns,
+    columnsDef,
     data,
     // Default is 30
     initialPageSize = 30,
     rowsPerPageOptions,
     serverSide = false,
     pageCount,
-    serverSideFetchData,
-    serverSideSort,
-    onRowsSelect
+    onColumnSortChange,
+    onChangeRowsPerPage,
+    onChangePage,
+    onRowsSelect,
+    isRowSelectable = true
   } = props;
+
+  // Add the selection row to the table.
+  const columns = React.useMemo(
+    () => columnSelectionDecorator(columnsDef, isRowSelectable),
+    [columnsDef, isRowSelectable],
+  );
 
   // Use the state and functions returned from useTable to build your UI
   const {
@@ -122,21 +132,28 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
   ) as TableInstance<object>;
   const classes = useStyles();
 
-  // Listen for changes in pagination and use the state to fetch our new data
+  // Listen for changes in column state and use the state to fetch new data
   React.useEffect(() => {
-    if (serverSideSort) {
-      serverSideSort(sortBy)
+    if (onColumnSortChange) {
+      onColumnSortChange(sortBy)
     }
-  }, [serverSideSort, sortBy])
+  }, [onColumnSortChange, sortBy])
 
   // Listen for changes in pagination and use the state to fetch our new data
   React.useEffect(() => {
-    if (serverSideFetchData) {
-      serverSideFetchData(pageIndex, pageSize)
+    if (onChangePage) {
+      onChangePage(pageIndex)
     }
-  }, [serverSideFetchData, pageIndex, pageSize])
+  }, [onChangePage, pageIndex])
 
-  // Listen for changes in pagination and use the state to fetch our new data
+  // Listen for changes in pageSize and use the state to fetch our new data
+  React.useEffect(() => {
+    if (onChangeRowsPerPage) {
+      onChangeRowsPerPage(pageSize)
+    }
+  }, [onChangeRowsPerPage, pageSize])
+
+  // Listen for changes in row selection and send data back to the user.
   React.useEffect(() => {
     if (onRowsSelect) {
       onRowsSelect(selectedFlatRows);
@@ -176,10 +193,10 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
           </TableHead>
           <TableBody {...getTableBodyProps()}>
             {page.map(
-              (row, i) => {
+              (row) => {
                 prepareRow(row);
                 return (
-                  <StyledTableRow {...row.getRowProps()} className={row.isSelected ? classes.selectedRow : ''}>
+                  <StyledTableRow {...row.getRowProps()} className={row.isSelected ? classes.selectedRow : ''} hover={true}>
                     {row.cells.map(cell => {
                       return (
                         <TableCell {...cell.getCellProps()} tabIndex={0}>
@@ -209,4 +226,35 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
 
 
   )
+}
+
+/**
+ * Adds the selection row if selected
+ * @param columns 
+ * @param isRowSelectable 
+ */
+const columnSelectionDecorator = (columns: Column<object>[], isRowSelectable: boolean) => {
+  if (isRowSelectable) {
+    columns.unshift(selectionColumn);
+  }
+  return columns;
+}
+
+// Let's make a column for selection
+const selectionColumn: Column<object> =
+{
+  id: 'selection',
+  // The header can use the table's getToggleAllRowsSelectedProps method
+  // to render a checkbox
+  Header: ({ getToggleAllRowsSelectedProps, isAllRowsSelected }: CellProps<any>) => (<div>
+    <Checkbox {...getToggleAllRowsSelectedProps()} indeterminate={isAllRowsSelected} />
+  </div>),
+  // The cell can use the individual row's getToggleRowSelectedProps method
+  // to the render a checkbox
+  Cell: ({ row }: CellProps<any>) => (
+    <div>
+      <Checkbox {...row.getToggleRowSelectedProps()} />
+    </div>
+  ),
+  disableSortBy: true
 }
