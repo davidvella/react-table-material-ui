@@ -164,7 +164,7 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
   return (
     <Paper>
       <div className={classes.tableWrapper}>
-        <Table {...getTableProps()} stickyHeader>
+        <Table {...getTableProps()}>
           <TableHead>
             {headerGroups.map(headerGroup => (
               <TableRow {...headerGroup.getHeaderGroupProps()}>
