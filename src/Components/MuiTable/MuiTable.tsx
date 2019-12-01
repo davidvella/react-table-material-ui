@@ -1,9 +1,4 @@
 import React, { FC } from 'react';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
 import {
   useTable,
   useSortBy,
@@ -17,7 +12,20 @@ import {
   Column,
   CellProps
 } from 'react-table'
-import { makeStyles, createStyles, Theme, TableSortLabel, withStyles, Paper, Checkbox } from '@material-ui/core';
+import {
+  makeStyles,
+  createStyles,
+  Theme,
+  TableSortLabel,
+  withStyles,
+  Paper,
+  Checkbox,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow
+} from '@material-ui/core';
 import { MuiTableProps } from './MuiTable.types'
 import { MuiTablePagination } from '../MuiTablePagination/MuiTablePagination';
 
@@ -50,7 +58,8 @@ const useStyles = makeStyles((theme: Theme) =>
       overflow: 'auto'
     },
     selectedRow: {
-      background: '#c2dbff !important'
+      // Set with background color with 40% opacity
+      background: `${theme.palette.primary.main}66 !important`
     }
   }),
 );
@@ -247,13 +256,13 @@ const selectionColumn: Column<object> =
   // The header can use the table's getToggleAllRowsSelectedProps method
   // to render a checkbox
   Header: ({ getToggleAllRowsSelectedProps, isAllRowsSelected }: CellProps<any>) => (<div>
-    <Checkbox {...getToggleAllRowsSelectedProps()} indeterminate={isAllRowsSelected} />
+    <Checkbox {...getToggleAllRowsSelectedProps()} indeterminate={isAllRowsSelected} color="primary" />
   </div>),
   // The cell can use the individual row's getToggleRowSelectedProps method
   // to the render a checkbox
   Cell: ({ row }: CellProps<any>) => (
     <div>
-      <Checkbox {...row.getToggleRowSelectedProps()} />
+      <Checkbox {...row.getToggleRowSelectedProps()} color="primary" />
     </div>
   ),
   disableSortBy: true
