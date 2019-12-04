@@ -24,10 +24,13 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TableRow
+  TableRow,
+  Toolbar,
+  Grid
 } from '@material-ui/core';
 import { MuiTableProps } from './MuiTable.types'
 import { MuiTablePagination } from '../MuiTablePagination/MuiTablePagination';
+import { MuiTableToolbarActions } from './MuiTableToolbarActions';
 
 /**
  * TypeScript Interface needed to compile.
@@ -173,6 +176,11 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
   return (
     <Paper>
       <div className={classes.tableWrapper}>
+        <Toolbar>
+          <Grid container>
+            <MuiTableToolbarActions />
+          </Grid>
+        </Toolbar>
         <Table {...getTableProps()}>
           <TableHead>
             {headerGroups.map(headerGroup => (
