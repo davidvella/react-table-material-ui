@@ -140,7 +140,7 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
     },
     useSortBy,
     usePagination,
-    useRowSelect
+    useRowSelect,
   ) as TableInstance<object>;
   const classes = useStyles();
 

@@ -1,6 +1,7 @@
 
 import { ReactNode, ComponentType, MouseEvent } from 'react'
 import { OptionsType, InputActionMeta, OptionTypeBase } from "react-select";
+import { OptionProps } from "react-select/src/components/Option";
 
 export interface TableOptions<D extends object>
 extends UsePaginationOptions<D>,
@@ -9,7 +10,7 @@ extends UsePaginationOptions<D>,
 
 export interface TableInstance<D extends object = {}>
 extends UsePaginationInstanceProps<D>,
-  UseRowSelectInstanceProps<D> {}
+  UseRowSelectInstanceProps<D>{}
 
 export interface TableState<D extends object = {}>
 extends UsePaginationState<D>,
@@ -38,6 +39,8 @@ loadOptions?: (
 cacheOptions?: any;
 /* Support multiple selected options */
 isMulti?: boolean;
+/* Provide a custom componet to render a column*/
+OptionRenderer?:ComponentType<OptionProps<any>>;
 }
 
 

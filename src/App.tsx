@@ -30,7 +30,7 @@ const App: React.FC = () => {
       },
       {
         Header: 'Last Name',
-        accessor: 'lastName'
+        accessor: 'lastName',
       },
       {
         Header: 'Age',
