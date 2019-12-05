@@ -1,0 +1,58 @@
+{
+  "_from": "@types/react-table",
+  "_inBundle": false,
+  "_integrity": "sha512-ueCsAadG1IwuuAZM+MWf2SoxbccSWweyQa9YG6xGN5cOVK3SayPOJW4MsUHGpY0V/Q+iZWgohpasliiao29O6g==",
+  "_location": "/@types/react-table",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@types/react-table",
+    "name": "@types/react-table",
+    "escapedName": "@types%2freact-table",
+    "scope": "@types",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@types/react-table/-/react-table-6.8.5.tgz",
+  "_shasum": "deb2bf2fcedcfb81e9020edbb7df0d8459ca348b",
+  "_spec": "@types/react-table",
+  "_where": "e:\\GIT\\react-table-material-ui",
+  "bugs": {
+    "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues"
+  },
+  "contributors": [
+    "Roy Xue (https://github.com/royxue)",
+    "Pavel Sakalo (https://github.com/psakalo)",
+    "Krzysztof Porębski (https://github.com/Havret)",
+    "Andy S (https://github.com/andys8)",
+    "Grzegorz Rozdzialik (https://github.com/Gelio)",
+    "Cam Pepin (https://github.com/cpepin)"
+  ],
+  "dependencies": {
+    "@types/react": "*"
+  },
+  "deprecated": false,
+  "description": "TypeScript definitions for react-table",
+  "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "name": "@types/react-table",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+    "directory": "types/react-table"
+  },
+  "scripts": {},
+  "typeScriptVersion": "2.8",
+  "types": "index",
+  "typesPublisherContentHash": "31de499af338c67e1b7fddfe88cc512fa55dbde3f251a82c3f172b5aea6378c4",
+  "version": "6.8.5",
+  "keywords": [],
+  "author": ""
+}
