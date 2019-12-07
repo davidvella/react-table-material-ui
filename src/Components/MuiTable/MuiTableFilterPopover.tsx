@@ -16,9 +16,13 @@ const useStyles = makeStyles((theme: Theme) =>
             flexWrap: 'wrap',
             margin: '0px 16px 0px 16px',
         },
+        paper: {
+            overflowX: "unset!important" as any,
+            overflowY: "unset!important" as any,
+            maxWidth: 600
+        }
     }),
 );
-
 
 /**
  * 
@@ -28,6 +32,7 @@ export const MuiTableFilterPopover: FC<MuiTableFilterPopoverProps> = (props) => 
     const classes = useStyles();
     return (
         <Popover
+            classes={{paper:classes.paper}}
             open={Boolean(props.anchorEl)}
             anchorEl={props.anchorEl}
             elevation={2}
@@ -45,9 +50,8 @@ export const MuiTableFilterPopover: FC<MuiTableFilterPopoverProps> = (props) => 
                 horizontal: 'center',
             }}
         >
-            <div className={clsx(classes.root)}>
-                <MuiTableFilterList></MuiTableFilterList>
-            </div>
+
+            <MuiTableFilterList className={classes.root} />
         </Popover>
     );
 }

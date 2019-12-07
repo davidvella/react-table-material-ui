@@ -4,6 +4,6 @@ import { CircularProgress } from "@material-ui/core";
 
 export function LoadingIndicator(props: LoadingIconProps<any>) {
     return (
-        <CircularProgress {...props}/>
+        <CircularProgress />
     );
 }

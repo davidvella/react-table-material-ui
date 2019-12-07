@@ -87,7 +87,7 @@ const StyledTableRow = withStyles((theme: Theme) =>
 export const MuiTable: FC<MuiTableProps> = (props) => {
   // Load values from props.
   const {
-    columnsDef,
+    columns: columnsDef,
     data,
     // Default is 30
     initialPageSize = 30,

@@ -8,11 +8,12 @@ export function Control(props: ControlProps<any>) {
         children,
         innerProps,
         innerRef,
-        selectProps: { classes, TextFieldProps },
+        selectProps: { classes, TextFieldProps, name },
     } = props;
 
     return (
         <TextField
+            label={name}
             fullWidth
             InputProps={{
                 inputComponent,
