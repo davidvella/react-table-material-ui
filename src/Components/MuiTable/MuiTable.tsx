@@ -31,6 +31,7 @@ import {
 import { MuiTableProps } from './MuiTable.types'
 import { MuiTablePagination } from '../MuiTablePagination/MuiTablePagination';
 import { MuiTableToolbarActions } from './MuiTableToolbarActions';
+import { MuiTableProvider } from './MuiTableProvider';
 
 /**
  * TypeScript Interface needed to compile.
@@ -174,74 +175,74 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
 
   // Render the UI for your table
   return (
-    <Paper>
-      <div className={classes.tableWrapper}>
-        <Toolbar>
-          <Grid container>
-            <MuiTableToolbarActions />
-          </Grid>
-        </Toolbar>
-        <Table {...getTableProps()}>
-          <TableHead>
-            {headerGroups.map(headerGroup => (
-              <TableRow {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map(c => {
-                  const column = (c as unknown) as TableColumn<object>
+    <MuiTableProvider columns={columnsDef}>
+      <Paper>
+        <div className={classes.tableWrapper}>
+          <Toolbar>
+            <Grid container>
+              <MuiTableToolbarActions />
+            </Grid>
+          </Toolbar>
+          <Table {...getTableProps()}>
+            <TableHead>
+              {headerGroups.map(headerGroup => (
+                <TableRow {...headerGroup.getHeaderGroupProps()}>
+                  {headerGroup.headers.map(c => {
+                    const column = (c as unknown) as TableColumn<object>
+                    return (
+                      <TableCell {...column.getHeaderProps()}>
+                        <TableSortLabel
+                          active={column.isSorted}
+                          direction={column.isSortedDesc ? "desc" : "asc"}
+                          hideSortIcon={column.disableSortBy}
+                          {...column.getSortByToggleProps()}
+                        >
+                          {column.render('Header')}
+                          {column.isSorted ? (
+                            <span className={classes.visuallyHidden}>
+                              {column.isSortedDesc ? 'sorted descending' : 'sorted ascending'}
+                            </span>
+                          ) : null}
+                        </TableSortLabel>
+                      </TableCell>
+                    )
+                  })}
+                </TableRow>
+              ))}
+            </TableHead>
+            <TableBody {...getTableBodyProps()}>
+              {page.map(
+                (row) => {
+                  prepareRow(row);
                   return (
-                    <TableCell {...column.getHeaderProps()}>
-                      <TableSortLabel
-                        active={column.isSorted}
-                        direction={column.isSortedDesc ? "desc" : "asc"}
-                        hideSortIcon={column.disableSortBy}
-                        {...column.getSortByToggleProps()}
-                      >
-                        {column.render('Header')}
-                        {column.isSorted ? (
-                          <span className={classes.visuallyHidden}>
-                            {column.isSortedDesc ? 'sorted descending' : 'sorted ascending'}
-                          </span>
-                        ) : null}
-                      </TableSortLabel>
-                    </TableCell>
+                    <StyledTableRow {...row.getRowProps()} className={row.isSelected ? classes.selectedRow : ''} hover={true}>
+                      {row.cells.map(cell => {
+                        return (
+                          <TableCell {...cell.getCellProps()} tabIndex={0}>
+                            {cell.render('Cell')}
+                          </TableCell>
+                        )
+                      })}
+                    </StyledTableRow>
                   )
-                })}
-              </TableRow>
-            ))}
-          </TableHead>
-          <TableBody {...getTableBodyProps()}>
-            {page.map(
-              (row) => {
-                prepareRow(row);
-                return (
-                  <StyledTableRow {...row.getRowProps()} className={row.isSelected ? classes.selectedRow : ''} hover={true}>
-                    {row.cells.map(cell => {
-                      return (
-                        <TableCell {...cell.getCellProps()} tabIndex={0}>
-                          {cell.render('Cell')}
-                        </TableCell>
-                      )
-                    })}
-                  </StyledTableRow>
-                )
-              }
-            )}
-          </TableBody>
-        </Table>
-      </div>
-      <MuiTablePagination
-        rowsPerPageOptions={rowsPerPageOptions}
-        canNextPage={canNextPage}
-        canPreviousPage={canPreviousPage}
-        onClickNext={() => nextPage()}
-        onClickPrevious={() => previousPage()}
-        rowsPerPage={pageSize}
-        onChangeRowsPerPage={e => {
-          setPageSize(Number(e.target.value))
-        }}
-      />
-    </Paper>
-
-
+                }
+              )}
+            </TableBody>
+          </Table>
+        </div>
+        <MuiTablePagination
+          rowsPerPageOptions={rowsPerPageOptions}
+          canNextPage={canNextPage}
+          canPreviousPage={canPreviousPage}
+          onClickNext={() => nextPage()}
+          onClickPrevious={() => previousPage()}
+          rowsPerPage={pageSize}
+          onChangeRowsPerPage={e => {
+            setPageSize(Number(e.target.value))
+          }}
+        />
+      </Paper>
+    </MuiTableProvider>
   )
 }
 
@@ -273,5 +274,7 @@ const selectionColumn: Column<object> =
       <Checkbox {...row.getToggleRowSelectedProps()} color="primary" />
     </div>
   ),
-  disableSortBy: true
+  disableSortBy: true,
+  disableFilters: true,
+  loadOptions:()=>{}
 }

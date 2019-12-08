@@ -15,6 +15,9 @@ export function Control(props: ControlProps<any>) {
         <TextField
             label={name}
             fullWidth
+            InputLabelProps={{
+                shrink: true,
+              }}
             InputProps={{
                 inputComponent,
                 inputProps: {

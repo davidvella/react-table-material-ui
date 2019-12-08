@@ -48,8 +48,9 @@ export interface MuiTableProps {
    */
   onRowsSelect?: (
     selectedRows: Row<Object>[]
-  ) => void
-
-  isRowSelectable?: boolean
-
+  ) => void;
+  /**
+   * Boolean value as whether rows are selectable.
+   */
+  isRowSelectable?: boolean;
 }

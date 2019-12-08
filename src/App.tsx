@@ -1,43 +1,84 @@
 import React from 'react';
 import makeData from './makeData';
-import { CellProps, SortingRule } from 'react-table';
+import { CellProps, SortingRule, Column } from 'react-table';
 import { MuiTable } from './Components/MuiTable/MuiTable';
 import { CssBaseline } from '@material-ui/core';
 
 const serverData = makeData(1000);
 
+export const colourOptions = [
+  { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
+  { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
+  { value: 'purple', label: 'Purple', color: '#5243AA' },
+  { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
+  { value: 'orange', label: 'Orange', color: '#FF8B00' },
+  { value: 'yellow', label: 'Yellow', color: '#FFC400' },
+  { value: 'green', label: 'Green', color: '#36B37E' },
+  { value: 'forest', label: 'Forest', color: '#00875A' },
+  { value: 'slate', label: 'Slate', color: '#253858' },
+  { value: 'silver', label: 'Silver', color: '#666666' },
+];
+
+const filterColors = (inputValue: string) => {
+  return colourOptions.filter((i: { label: { toLowerCase: () => { includes: (arg0: string) => void; }; }; }) => {
+    return i.label.toLowerCase().includes(inputValue.toLowerCase());
+  }
+  );
+};
+
+const promiseOptions = (inputValue: any) =>
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve(filterColors(inputValue));
+    }, 200);
+  });
+
+
 const App: React.FC = () => {
-  const columns: any = React.useMemo(
+  const columns: Column<any>[] = React.useMemo(
     () => [
       {
         Header: 'First Name',
-        accessor: 'firstName'
+        accessor: 'firstName',
+        id:"FirstName",
+        loadOptions:promiseOptions
       },
       {
         Header: 'Last Name',
         accessor: 'lastName',
+        id:"LastName",
+        loadOptions:promiseOptions
       },
       {
         Header: 'Age',
         accessor: 'age',
-        Cell: ({ cell: { value } }: CellProps<object>) => <div>{value}</div>
+        Cell: ({ cell: { value } }: CellProps<object>) => <div>{value}</div>,
+        id:"Age",
+        loadOptions:promiseOptions
       },
       {
         Header: 'Visits',
         accessor: 'visits',
-        Cell: ({ cell: { value } }: CellProps<object>) => <div>{value}</div>
+        Cell: ({ cell: { value } }: CellProps<object>) => <div>{value}</div>,
+        id:"Visits",
+        loadOptions:promiseOptions
       },
       {
         Header: 'Status',
-        accessor: 'status'
+        accessor: 'status',
+        id:"Status",
+        loadOptions:promiseOptions
       },
       {
         Header: 'Profile Progress',
+        id:"Multi",
         Cell: ({ row: { original } }: CellProps<any>) => {
           return (<span>
             {original.progress}
           </span>)
-        }
+        },
+        loadOptions:promiseOptions,
+        isMulti:true
       },
     ],
     []
@@ -105,6 +146,7 @@ const App: React.FC = () => {
   return (
     <div>
       <CssBaseline />
+
       <MuiTable columns={columns}
         data={data}
         initialPageSize={50}

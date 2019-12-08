@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import { Popover, Typography, Button } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { MuiTableFilterPopoverProps } from "./MuiTableFilterPopover.types";
 import { MuiTableFilterList } from "./MuiTableFilterList";
+import { MuiTableContext } from "./MuiTableProvider";
 
 /**
  * Styles for the Table
@@ -61,6 +62,8 @@ const useStyles = makeStyles((theme: Theme) =>
  * @param param0 
  */
 export const MuiTableFilterPopover: FC<MuiTableFilterPopoverProps> = (props) => {
+    // Map Context to columns
+    const { dispatch } = useContext(MuiTableContext);
     const classes = useStyles();
     return (
         <Popover
@@ -95,7 +98,8 @@ export const MuiTableFilterPopover: FC<MuiTableFilterPopoverProps> = (props) => 
                             className={classes.resetLink}
                             tabIndex={0}
                             aria-label={"RESET"}
-                            data-testid={'filterReset-button'}>
+                            data-testid={'filterReset-button'}
+                            onClick={() => dispatch({type:"resetFilter"})}>
                             RESET
                         </Button>
                     </div>

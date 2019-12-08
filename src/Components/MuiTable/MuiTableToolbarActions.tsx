@@ -7,7 +7,7 @@ import { MuiTableFilterPopover } from "./MuiTableFilterPopover";
  * 
  * @param param0 
  */
-export const MuiTableToolbarActions: FC<any> = (props) => {
+export const MuiTableToolbarActions: FC<any> = () => {
     const [anchorEl, updateAnchorEl] = useState<null | EventTarget & HTMLButtonElement| Element>(null);
 
     return (
