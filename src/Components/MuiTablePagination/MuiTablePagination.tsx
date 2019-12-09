@@ -104,10 +104,10 @@ export const MuiTablePagination: FC<MuiTablePaginationProps> = (props) => {
                     value={rowsPerPage}
                     onChange={onChangeRowsPerPage}
                 >
-                    {rowsPerPageOptions.map(rowsPerPageOption => (
+                    {rowsPerPageOptions.map((rowsPerPageOption,index) => (
                         <MenuItem
                             className={classes.menuItem}
-                            key={rowsPerPageOption}
+                            key={index}
                             value={rowsPerPageOption}
                         >
                             {rowsPerPageOption}

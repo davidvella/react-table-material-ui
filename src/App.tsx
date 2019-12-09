@@ -40,38 +40,40 @@ const App: React.FC = () => {
       {
         Header: 'First Name',
         accessor: 'firstName',
-        id:"FirstName",
+        id:"1",
+        filterLabel:'First Name',
         loadOptions:promiseOptions
       },
       {
         Header: 'Last Name',
         accessor: 'lastName',
-        id:"LastName",
+        id:"2",
+        filterLabel:'Last Name',
         loadOptions:promiseOptions
       },
       {
         Header: 'Age',
         accessor: 'age',
         Cell: ({ cell: { value } }: CellProps<object>) => <div>{value}</div>,
-        id:"Age",
+        id:"3",
         loadOptions:promiseOptions
       },
       {
         Header: 'Visits',
         accessor: 'visits',
         Cell: ({ cell: { value } }: CellProps<object>) => <div>{value}</div>,
-        id:"Visits",
-        loadOptions:promiseOptions
+        id:"4",
+        disableFilters: true,
       },
       {
         Header: 'Status',
         accessor: 'status',
-        id:"Status",
+        id:"5",
         loadOptions:promiseOptions
       },
       {
         Header: 'Profile Progress',
-        id:"Multi",
+        id:"6",
         Cell: ({ row: { original } }: CellProps<any>) => {
           return (<span>
             {original.progress}

@@ -29,7 +29,7 @@ disableFilters?: boolean;
 defaultOptions?: OptionsType<D> | boolean;
 /* Function that returns a promise, which is the set of options to be used
  once the promise resolves. */
-loadOptions: (
+loadOptions?: (
   inputValue: string,
   callback: (options: OptionsType<D>) => void
 ) => Promise<any> | void;
@@ -41,6 +41,8 @@ cacheOptions?: any;
 isMulti?: boolean;
 /* Provide a custom componet to render a column*/
 OptionRenderer?:ComponentType<OptionProps<any>>;
+/* Filter to be shown on top of the Filter */
+filterLabel?:string;
 }
 
 

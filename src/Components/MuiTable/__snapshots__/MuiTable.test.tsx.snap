@@ -65,94 +65,11 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
                 class="MuiButtonBase-root MuiTableSortLabel-root"
                 role="button"
                 tabindex="0"
-                title="Toggle SortBy"
-              >
-                 
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
-                  focusable="false"
-                  role="presentation"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
-                  />
-                </svg>
-              </span>
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head"
-              colspan="2"
-              scope="col"
-            >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root"
-                role="button"
-                tabindex="0"
-                title="Toggle SortBy"
-              >
-                Name
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
-                  focusable="false"
-                  role="presentation"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
-                  />
-                </svg>
-              </span>
-            </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head"
-              colspan="4"
-              scope="col"
-            >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root"
-                role="button"
-                tabindex="0"
-                title="Toggle SortBy"
-              >
-                Info
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
-                  focusable="false"
-                  role="presentation"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
-                  />
-                </svg>
-              </span>
-            </th>
-          </tr>
-          <tr
-            class="MuiTableRow-root MuiTableRow-head"
-          >
-            <th
-              class="MuiTableCell-root MuiTableCell-head"
-              colspan="1"
-              scope="col"
-            >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root"
-                role="button"
-                tabindex="0"
-                title="Toggle SortBy"
               >
                 <div>
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-204 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                     style="cursor: pointer;"
                     title="Toggle All Rows Selected"
                   >
@@ -160,7 +77,7 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
                       class="MuiIconButton-label"
                     >
                       <input
-                        class="PrivateSwitchBase-input-207"
+                        class="PrivateSwitchBase-input-216"
                         data-indeterminate="false"
                         type="checkbox"
                         value=""
@@ -319,40 +236,13 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
                 </svg>
               </span>
             </th>
-            <th
-              class="MuiTableCell-root MuiTableCell-head"
-              colspan="1"
-              scope="col"
-            >
-              <span
-                aria-disabled="false"
-                class="MuiButtonBase-root MuiTableSortLabel-root"
-                role="button"
-                style="cursor: pointer;"
-                tabindex="0"
-                title="Toggle SortBy"
-              >
-                Profile Progress
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc"
-                  focusable="false"
-                  role="presentation"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"
-                  />
-                </svg>
-              </span>
-            </th>
           </tr>
         </thead>
         <tbody
           class="MuiTableBody-root"
         >
           <tr
-            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-209 MuiTableRow-hover"
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-218 MuiTableRow-hover"
           >
             <td
               class="MuiTableCell-root MuiTableCell-body"
@@ -361,7 +251,7 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
               <div>
                 <span
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-204 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                   style="cursor: pointer;"
                   title="Toggle Row Selected"
                 >
@@ -369,7 +259,7 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
                     class="MuiIconButton-label"
                   >
                     <input
-                      class="PrivateSwitchBase-input-207"
+                      class="PrivateSwitchBase-input-216"
                       data-indeterminate="false"
                       type="checkbox"
                       value=""
@@ -422,15 +312,9 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
             >
               In Relationship
             </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-              tabindex="0"
-            >
-              50
-            </td>
           </tr>
           <tr
-            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-209 MuiTableRow-hover"
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-218 MuiTableRow-hover"
           >
             <td
               class="MuiTableCell-root MuiTableCell-body"
@@ -439,7 +323,7 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
               <div>
                 <span
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-204 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                   style="cursor: pointer;"
                   title="Toggle Row Selected"
                 >
@@ -447,7 +331,7 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
                     class="MuiIconButton-label"
                   >
                     <input
-                      class="PrivateSwitchBase-input-207"
+                      class="PrivateSwitchBase-input-216"
                       data-indeterminate="false"
                       type="checkbox"
                       value=""
@@ -500,15 +384,9 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
             >
               Single
             </td>
-            <td
-              class="MuiTableCell-root MuiTableCell-body"
-              tabindex="0"
-            >
-              80
-            </td>
           </tr>
           <tr
-            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-209 MuiTableRow-hover"
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-218 MuiTableRow-hover"
           >
             <td
               class="MuiTableCell-root MuiTableCell-body"
@@ -517,7 +395,7 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
               <div>
                 <span
                   aria-disabled="false"
-                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-204 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
                   style="cursor: pointer;"
                   title="Toggle Row Selected"
                 >
@@ -525,7 +403,7 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
                     class="MuiIconButton-label"
                   >
                     <input
-                      class="PrivateSwitchBase-input-207"
+                      class="PrivateSwitchBase-input-216"
                       data-indeterminate="false"
                       type="checkbox"
                       value=""
@@ -578,46 +456,544 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
             >
               Complicated
             </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-218 MuiTableRow-hover"
+          >
             <td
               class="MuiTableCell-root MuiTableCell-body"
               tabindex="0"
             >
-              10
+              <div>
+                <span
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                  style="cursor: pointer;"
+                  title="Toggle Row Selected"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <input
+                      class="PrivateSwitchBase-input-216"
+                      data-indeterminate="false"
+                      type="checkbox"
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </span>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              joe
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              bergevin
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              45
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              20
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              Complicated
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-218 MuiTableRow-hover"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              <div>
+                <span
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                  style="cursor: pointer;"
+                  title="Toggle Row Selected"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <input
+                      class="PrivateSwitchBase-input-216"
+                      data-indeterminate="false"
+                      type="checkbox"
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </span>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              joe
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              bergevin
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              45
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              20
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              Complicated
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-218 MuiTableRow-hover"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              <div>
+                <span
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                  style="cursor: pointer;"
+                  title="Toggle Row Selected"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <input
+                      class="PrivateSwitchBase-input-216"
+                      data-indeterminate="false"
+                      type="checkbox"
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </span>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              joe
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              bergevin
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              45
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              20
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              Complicated
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-218 MuiTableRow-hover"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              <div>
+                <span
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                  style="cursor: pointer;"
+                  title="Toggle Row Selected"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <input
+                      class="PrivateSwitchBase-input-216"
+                      data-indeterminate="false"
+                      type="checkbox"
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </span>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              joe
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              bergevin
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              45
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              20
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              Complicated
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-218 MuiTableRow-hover"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              <div>
+                <span
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                  style="cursor: pointer;"
+                  title="Toggle Row Selected"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <input
+                      class="PrivateSwitchBase-input-216"
+                      data-indeterminate="false"
+                      type="checkbox"
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </span>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              joe
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              bergevin
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              45
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              20
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              Complicated
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-218 MuiTableRow-hover"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              <div>
+                <span
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                  style="cursor: pointer;"
+                  title="Toggle Row Selected"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <input
+                      class="PrivateSwitchBase-input-216"
+                      data-indeterminate="false"
+                      type="checkbox"
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </span>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              joe
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              bergevin
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              45
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              20
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              Complicated
+            </td>
+          </tr>
+          <tr
+            class="MuiTableRow-root WithStyles(ForwardRef(TableRow))-root-218 MuiTableRow-hover"
+          >
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              <div>
+                <span
+                  aria-disabled="false"
+                  class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-213 MuiCheckbox-root MuiCheckbox-colorPrimary MuiIconButton-colorPrimary"
+                  style="cursor: pointer;"
+                  title="Toggle Row Selected"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <input
+                      class="PrivateSwitchBase-input-216"
+                      data-indeterminate="false"
+                      type="checkbox"
+                      value=""
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      role="presentation"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </span>
+              </div>
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              joe
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              bergevin
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              45
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              20
+            </td>
+            <td
+              class="MuiTableCell-root MuiTableCell-body"
+              tabindex="0"
+            >
+              Complicated
             </td>
           </tr>
         </tbody>
       </table>
     </div>
     <div
-      class="MuiToolbar-root MuiToolbar-regular makeStyles-root-210 makeStyles-toolbar-211 MuiToolbar-gutters"
+      class="MuiToolbar-root MuiToolbar-regular makeStyles-root-219 makeStyles-toolbar-220 MuiToolbar-gutters"
     >
       <div
-        class="makeStyles-spacer-212"
+        class="makeStyles-spacer-221"
       />
       <p
-        class="MuiTypography-root makeStyles-caption-213 MuiTypography-body2 MuiTypography-colorInherit"
+        class="MuiTypography-root makeStyles-caption-222 MuiTypography-body2 MuiTypography-colorInherit"
       >
         Rows per page:
       </p>
       <div
-        class="MuiInputBase-root makeStyles-input-217 makeStyles-selectRoot-214"
+        class="MuiInputBase-root makeStyles-input-226 makeStyles-selectRoot-223"
       >
         <div
           aria-haspopup="listbox"
           aria-labelledby=" "
-          class="MuiSelect-root MuiSelect-select makeStyles-select-215 MuiSelect-selectMenu MuiInputBase-input"
+          class="MuiSelect-root MuiSelect-select makeStyles-select-224 MuiSelect-selectMenu MuiInputBase-input"
           role="button"
           tabindex="0"
         >
-          50
+          10
         </div>
         <input
           type="hidden"
-          value="50"
+          value="10"
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root MuiSelect-icon makeStyles-selectIcon-216"
+          class="MuiSvgIcon-root MuiSelect-icon makeStyles-selectIcon-225"
           focusable="false"
           role="presentation"
           viewBox="0 0 24 24"
@@ -628,7 +1004,7 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
         </svg>
       </div>
       <div
-        class="makeStyles-actions-219"
+        class="makeStyles-actions-228"
       >
         <button
           aria-label="previous page"
@@ -655,9 +1031,8 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
         </button>
         <button
           aria-label="next page"
-          class="MuiButtonBase-root MuiIconButton-root Mui-disabled Mui-disabled"
-          disabled=""
-          tabindex="-1"
+          class="MuiButtonBase-root MuiIconButton-root"
+          tabindex="0"
           type="button"
         >
           <span
@@ -675,6 +1050,9 @@ exports[`<MuiTable /> should renders a basic table 1`] = `
               />
             </svg>
           </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
         </button>
       </div>
     </div>

@@ -3,8 +3,11 @@ import { IMuiTableProviderProps, IMuiTableContext, MuiTableAction } from "./MuiT
 import { Dictionary } from "typescript-collections";
 import { MuiTableReducer } from "./MuiTableReducer";
 import { OptionTypeBase, ValueType } from "react-select";
-const initialState: IMuiTableContext = { filterValues: new Dictionary<string, OptionTypeBase[] | null>(), columns: [] };
 
+/**
+ * The Initial state for the context.
+ */
+const initialState: IMuiTableContext = { filterValues: new Dictionary<string, OptionTypeBase[] | null>(), columns: [] };
 
 /**
  * The initial context

@@ -30,58 +30,121 @@ const data = [
         status: 'Complicated',
         progress: 10,
     },
+    {
+        firstName: 'joe',
+        lastName: 'bergevin',
+        age: 45,
+        visits: 20,
+        status: 'Complicated',
+        progress: 10,
+    },
+    {
+        firstName: 'joe',
+        lastName: 'bergevin',
+        age: 45,
+        visits: 20,
+        status: 'Complicated',
+        progress: 10,
+    },
+    {
+        firstName: 'joe',
+        lastName: 'bergevin',
+        age: 45,
+        visits: 20,
+        status: 'Complicated',
+        progress: 10,
+    },
+    {
+        firstName: 'joe',
+        lastName: 'bergevin',
+        age: 45,
+        visits: 20,
+        status: 'Complicated',
+        progress: 10,
+    },
+    {
+        firstName: 'joe',
+        lastName: 'bergevin',
+        age: 45,
+        visits: 20,
+        status: 'Complicated',
+        progress: 10,
+    },
+    {
+        firstName: 'joe',
+        lastName: 'bergevin',
+        age: 45,
+        visits: 20,
+        status: 'Complicated',
+        progress: 10,
+    },
+    {
+        firstName: 'joe',
+        lastName: 'bergevin',
+        age: 45,
+        visits: 20,
+        status: 'Complicated',
+        progress: 10,
+    },
+    {
+        firstName: 'joe',
+        lastName: 'bergevin',
+        age: 45,
+        visits: 20,
+        status: 'Complicated',
+        progress: 10,
+    },
+    {
+        firstName: 'joe',
+        lastName: 'bergevin',
+        age: 45,
+        visits: 20,
+        status: 'Complicated',
+        progress: 10,
+    },
 ]
 
-const App: FC<any> = (props) => {
-    const columns = React.useMemo(
-        () => [
-            {
-                Header: 'Name',
-                columns: [
-                    {
-                        Header: 'First Name',
-                        accessor: 'firstName',
-                    },
-                    {
-                        Header: 'Last Name',
-                        accessor: 'lastName',
-                    },
-                ],
-            },
-            {
-                Header: 'Info',
-                columns: [
-                    {
-                        Header: 'Age',
-                        accessor: 'age',
-                    },
-                    {
-                        Header: 'Visits',
-                        accessor: 'visits',
-                    },
-                    {
-                        Header: 'Status',
-                        accessor: 'status',
-                    },
-                    {
-                        Header: 'Profile Progress',
-                        accessor: 'progress',
-                    },
-                ],
-            },
-        ],
-        []
-    )
-
-    return <MuiTable columns={columns} data={data} initialPageSize={50} />
-}
+const columns = [
+    {
+        Header: 'First Name',
+        accessor: 'firstName',
+        id: "1",
+        filterLabel: 'First Name',
+        disableFilters: true,
+    },
+    {
+        Header: 'Last Name',
+        accessor: 'lastName',
+        id: "2",
+        filterLabel: 'Last Name',
+        disableFilters: true,
+    },
+    {
+        Header: 'Age',
+        accessor: 'age',
+        id: "3",
+        disableFilters: true,
+    },
+    {
+        Header: 'Visits',
+        accessor: 'visits',
+        id: "4",
+        disableFilters: true,
+    },
+    {
+        Header: 'Status',
+        accessor: 'status',
+        id: "5",
+        disableFilters: true,
+    },
+]
 
 describe('<MuiTable />', () => {
 
     afterEach(cleanup);
 
     it('should renders a basic table', () => {
-        const { getByText, asFragment } = render(<App />)
+        const { getByText, asFragment } = render(<MuiTable columns={columns} data={data} initialPageSize={10} />)
 
         expect(getByText('tanner')).toBeInTheDocument()
         expect(getByText('linsley')).toBeInTheDocument()
@@ -92,4 +155,27 @@ describe('<MuiTable />', () => {
         expect(asFragment()).toMatchSnapshot()
     });
 
+    it('should next page be called', () => {
+        const onClick = jest.fn();
+
+        const { container } = render(<MuiTable columns={columns} data={data} initialPageSize={10} serverSide={true} onChangePage={onClick} isRowSelectable={true}/>)
+
+        const nextButton = container.querySelectorAll('button[type="button"]')[1];
+
+        fireEvent.click(nextButton);
+
+        expect(onClick).toHaveBeenCalled()
+    });
+
+    it('should serverSideSort be called', () => {
+        const onClick = jest.fn();
+
+        const { container } = render(<MuiTable columns={columns} data={data} initialPageSize={10} serverSide={true} onColumnSortChange={onClick} />)
+
+        const sortButton = container.querySelectorAll('span[role="button"]')[1];
+
+        fireEvent.click(sortButton);
+
+        expect(onClick).toHaveBeenCalled()
+    });
 });

@@ -3,9 +3,10 @@ import { Dictionary } from "typescript-collections";
 import { ValueType, OptionTypeBase } from "react-select";
 
 /**
- *
- * @param state
- * @param action
+ * Reducer specify how the application's state changes in response to actions sent to the store. 
+ * 
+ * @param state The Previous context state.
+ * @param action The type of action to perform.
  */
 export const MuiTableReducer = (state: IMuiTableContext, action: MuiTableAction) => {
   const { columns, filterValues } = state;

@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 /**
- * 
+ * A Popover used to display filter values content on top of the table. 
  * @param param0 
  */
 export const MuiTableFilterPopover: FC<MuiTableFilterPopoverProps> = (props) => {
@@ -99,7 +99,7 @@ export const MuiTableFilterPopover: FC<MuiTableFilterPopoverProps> = (props) => 
                             tabIndex={0}
                             aria-label={"RESET"}
                             data-testid={'filterReset-button'}
-                            onClick={() => dispatch({type:"resetFilter"})}>
+                            onClick={() => dispatch({ type: "resetFilter" })}>
                             RESET
                         </Button>
                     </div>

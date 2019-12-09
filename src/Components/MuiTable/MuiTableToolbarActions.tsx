@@ -4,11 +4,11 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import { MuiTableFilterPopover } from "./MuiTableFilterPopover";
 
 /**
- * 
+ * The toolbar which sits on top of the table.
  * @param param0 
  */
 export const MuiTableToolbarActions: FC<any> = () => {
-    const [anchorEl, updateAnchorEl] = useState<null | EventTarget & HTMLButtonElement| Element>(null);
+    const [anchorEl, updateAnchorEl] = useState<null | EventTarget & HTMLButtonElement | Element>(null);
 
     return (
         <Grid item>
@@ -16,7 +16,7 @@ export const MuiTableToolbarActions: FC<any> = () => {
                 <Tooltip title={"Filters"}>
                     <IconButton
                         aria-label={"Filters"}
-                        onClick={event => updateAnchorEl(event.currentTarget)}
+                        onClick={(event: any) => updateAnchorEl(event.currentTarget)}
                     >
                         <FilterListIcon />
                     </IconButton>
