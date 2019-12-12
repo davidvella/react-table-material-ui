@@ -155,27 +155,5 @@ describe('<MuiTable />', () => {
         expect(asFragment()).toMatchSnapshot()
     });
 
-    it('should next page be called', () => {
-        const onClick = jest.fn();
 
-        const { container } = render(<MuiTable columns={columns} data={data} initialPageSize={10} serverSide={true} onChangePage={onClick} isRowSelectable={true}/>)
-
-        const nextButton = container.querySelectorAll('button[type="button"]')[1];
-
-        fireEvent.click(nextButton);
-
-        expect(onClick).toHaveBeenCalled()
-    });
-
-    it('should serverSideSort be called', () => {
-        const onClick = jest.fn();
-
-        const { container } = render(<MuiTable columns={columns} data={data} initialPageSize={10} serverSide={true} onColumnSortChange={onClick} />)
-
-        const sortButton = container.querySelectorAll('span[role="button"]')[1];
-
-        fireEvent.click(sortButton);
-
-        expect(onClick).toHaveBeenCalled()
-    });
 });
