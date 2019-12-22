@@ -1,13 +1,12 @@
 import React, { createContext, FC, useMemo, useReducer } from "react";
 import { IMuiTableProviderProps, IMuiTableContext, MuiTableAction } from "./MuiTableProvider.types";
-import { Dictionary } from "typescript-collections";
 import { MuiTableReducer } from "./MuiTableReducer";
 import { OptionTypeBase, ValueType } from "react-select";
 
 /**
  * The Initial state for the context.
  */
-const initialState: IMuiTableContext = { filterValues: new Dictionary<string, OptionTypeBase[] | null>(), columns: [] };
+const initialState: IMuiTableContext = { filterValues: new Map<string, OptionTypeBase[] | null>(), columns: [] };
 
 /**
  * The initial context
@@ -32,10 +31,10 @@ export const MuiTableProvider: FC<IMuiTableProviderProps> = (props) => {
    * Populate dictionary with filter values
    */
   const defaultDictionary = useMemo(() => {
-    const dict = new Dictionary<string,  ValueType<OptionTypeBase> | undefined>();
+    const dict = new Map<string,  ValueType<OptionTypeBase> | undefined>();
 
     columns.filter(col => !col.disableFilters).forEach(col => {
-      dict.setValue(col.id, null);
+      dict.set(col.id, null);
     })
 
     return dict

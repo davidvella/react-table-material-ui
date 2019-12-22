@@ -1,3 +1,4 @@
+import { OptionTypeBase, ValueType } from "react-select";
 import { Column, Row, SortingRule } from "react-table";
 
 export interface MuiTableProps {
@@ -26,13 +27,13 @@ export interface MuiTableProps {
    */
   pageCount?: number;
   /**
-   * Callback function that triggers when a page has changed. function(pageIndex: number) => void
+   * Callback function that triggers when a page has changed. 
    */
   onChangePage?:(
     pageIndex: number
   ) => void;
   /**
-   * Callback function that triggers when the number of rows per page has changed. function(numberOfRows: number) => void
+   * Callback function that triggers when the number of rows per page has changed. 
    */
   onChangeRowsPerPage?:(
     pageSize: number
@@ -44,10 +45,16 @@ export interface MuiTableProps {
     sortBy: Array<SortingRule<any>>
   ) => void
   /**
-   * Callback function that triggers when row(s) are selected. function(currentRowsSelected: array, allRowsSelected: array) => void
+   * Callback function that triggers when row(s) are selected.
    */
   onRowsSelect?: (
     selectedRows: Row<Object>[]
+  ) => void;
+  /**
+   * Callback function that triggers when filter(s) are selected. 
+   */
+  onFilterChange?: (
+    selectedRows: Map<string, ValueType<OptionTypeBase> | null>
   ) => void;
   /**
    * Boolean value as whether rows are selectable.

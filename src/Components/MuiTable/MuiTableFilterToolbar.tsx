@@ -1,4 +1,4 @@
-import { FC, useContext, HTMLAttributes } from "react";
+import { FC, useContext, HTMLAttributes, useMemo } from "react";
 import React from "react";
 import { Theme, createStyles, Chip } from "@material-ui/core";
 import { MuiTableContext } from "./MuiTableProvider";
@@ -35,7 +35,7 @@ export const MuiTableFilterToolbar: FC<HTMLAttributes<HTMLDivElement>> = () => {
     } } = useContext(MuiTableContext);
 
     // Get values of all filter columns.
-    const flatFilterValues = filterValues.values();
+    const flatFilterValues = useMemo(() => Array.from(filterValues.values()), [filterValues])
 
     const filterChipSingleValue = (index: number, item: any) => {
         return (

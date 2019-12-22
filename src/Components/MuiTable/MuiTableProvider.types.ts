@@ -1,5 +1,4 @@
 import { Column } from "react-table";
-import { Dictionary } from "typescript-collections";
 import { OptionTypeBase, ValueType } from "react-select";
 import { ReactNode } from "react";
 
@@ -18,7 +17,7 @@ export interface IMuiTableContext {
   /**
    * A dictionary containing all the selected options for each column
    */
-  filterValues: Dictionary<string, ValueType<OptionTypeBase> | null>;
+  filterValues: Map<string, ValueType<OptionTypeBase> | null>;
   /**
    * Columns used to describe table. Must be either an array of objects describing a column
    */

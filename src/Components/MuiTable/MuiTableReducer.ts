@@ -1,6 +1,6 @@
 import { IMuiTableContext, MuiTableAction } from "./MuiTableProvider.types";
-import { Dictionary } from "typescript-collections";
 import { ValueType, OptionTypeBase } from "react-select";
+import {cloneDeep} from "lodash";
 
 /**
  * Reducer specify how the application's state changes in response to actions sent to the store. 
@@ -13,7 +13,7 @@ export const MuiTableReducer = (state: IMuiTableContext, action: MuiTableAction)
 
   switch (action.type) {
     case "resetFilter":
-      const emptyDict = new Dictionary<
+      const emptyDict = new Map<
         string,
         ValueType<OptionTypeBase> | undefined
       >();
@@ -21,18 +21,19 @@ export const MuiTableReducer = (state: IMuiTableContext, action: MuiTableAction)
       columns
         .filter(col => !col.disableFilters)
         .forEach(col => {
-          emptyDict.setValue(col.id, null);
+          emptyDict.set(col.id, null);
         });
       return {
         ...state,
         filterValues: emptyDict
       };
     case "setFilter":
-      const dict = filterValues;
-      dict.setValue(action.columnId, action.filter);
+      // UseEffect use compare by reference, so a new map has to be set
+      const dict = cloneDeep(filterValues);
+      dict.set(action.columnId, action.filter);
       return {
         ...state,
-        dict
+        filterValues:dict
       };
   }
   return state;

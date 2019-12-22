@@ -3,7 +3,7 @@ import makeData from './makeData';
 import { CellProps, SortingRule, Column } from 'react-table';
 import { MuiTable } from './Components/MuiTable/MuiTable';
 import { CssBaseline } from '@material-ui/core';
-
+import { OptionTypeBase, ValueType } from "react-select";
 const serverData = makeData(1000);
 
 export const colourOptions = [
@@ -40,47 +40,47 @@ const App: React.FC = () => {
       {
         Header: 'First Name',
         accessor: 'firstName',
-        id:"1",
-        filterLabel:'First Name',
-        loadOptions:promiseOptions
+        id: "1",
+        filterLabel: 'First Name',
+        loadOptions: promiseOptions
       },
       {
         Header: 'Last Name',
         accessor: 'lastName',
-        id:"2",
-        filterLabel:'Last Name',
-        loadOptions:promiseOptions
+        id: "2",
+        filterLabel: 'Last Name',
+        loadOptions: promiseOptions
       },
       {
         Header: 'Age',
         accessor: 'age',
         Cell: ({ cell: { value } }: CellProps<object>) => <div>{value}</div>,
-        id:"3",
-        loadOptions:promiseOptions
+        id: "3",
+        loadOptions: promiseOptions
       },
       {
         Header: 'Visits',
         accessor: 'visits',
         Cell: ({ cell: { value } }: CellProps<object>) => <div>{value}</div>,
-        id:"4",
+        id: "4",
         disableFilters: true,
       },
       {
         Header: 'Status',
         accessor: 'status',
-        id:"5",
-        loadOptions:promiseOptions
+        id: "5",
+        loadOptions: promiseOptions
       },
       {
         Header: 'Profile Progress',
-        id:"6",
+        id: "6",
         Cell: ({ row: { original } }: CellProps<any>) => {
           return (<span>
             {original.progress}
           </span>)
         },
-        loadOptions:promiseOptions,
-        isMulti:true
+        loadOptions: promiseOptions,
+        isMulti: true
       },
     ],
     []
@@ -143,6 +143,12 @@ const App: React.FC = () => {
     }, 1000)
   }, [])
 
+  // This will get called when the user click sort
+  // You could fetch your data from literally anywhere,
+  // even a server. But for this example, we'll just fake it.
+  const filterData = React.useCallback((filterOptions: Map<string, ValueType<OptionTypeBase> | null>) => {
+    global.console.log(filterOptions);
+  }, [])
 
 
   return (
@@ -155,7 +161,8 @@ const App: React.FC = () => {
         onChangePage={fetchData}
         pageCount={pageCount}
         serverSide={true}
-        onColumnSortChange={sortData} />
+        onColumnSortChange={sortData}
+        onFilterChange={filterData} />
     </div>
   );
 }

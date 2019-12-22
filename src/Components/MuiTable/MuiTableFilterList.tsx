@@ -32,7 +32,7 @@ export const MuiTableFilterList: FC<HTMLAttributes<HTMLDivElement>> = () => {
                 name={column.filterLabel}
                 isMulti={column.isMulti}
                 cacheOptions
-                value={filterValues.getValue(column.id)}
+                value={filterValues.get(column.id)}
                 defaultOptions
                 onChange={(value)=> dispatch({type:"setFilter", columnId:column.id, filter:value}) }
                 loadOptions={column.loadOptions}
