@@ -1,20 +1,23 @@
 import { IMuiTableContext, MuiTableAction } from "./MuiTableProvider.types";
 import { ValueType, OptionTypeBase } from "react-select";
-import {cloneDeep} from "lodash";
+import { cloneDeep } from "lodash";
 
 /**
- * Reducer specify how the application's state changes in response to actions sent to the store. 
- * 
+ * Reducer specify how the application's state changes in response to actions sent to the store.
+ *
  * @param state The Previous context state.
  * @param action The type of action to perform.
  */
-export const MuiTableReducer = (state: IMuiTableContext, action: MuiTableAction) => {
+export const MuiTableReducer = (
+  state: IMuiTableContext,
+  action: MuiTableAction
+) => {
   const { columns, filterValues } = state;
 
   switch (action.type) {
     case "resetFilter":
       const emptyDict = new Map<
-        string,
+        string | undefined,
         ValueType<OptionTypeBase> | undefined
       >();
 
@@ -33,7 +36,7 @@ export const MuiTableReducer = (state: IMuiTableContext, action: MuiTableAction)
       dict.set(action.columnId, action.filter);
       return {
         ...state,
-        filterValues:dict
+        filterValues: dict
       };
   }
   return state;

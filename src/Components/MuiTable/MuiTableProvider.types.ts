@@ -17,7 +17,7 @@ export interface IMuiTableContext {
   /**
    * A dictionary containing all the selected options for each column
    */
-  filterValues: Map<string, ValueType<OptionTypeBase> | null>;
+  filterValues: Map<string|undefined, ValueType<OptionTypeBase> | null>;
   /**
    * Columns used to describe table. Must be either an array of objects describing a column
    */
@@ -26,4 +26,4 @@ export interface IMuiTableContext {
 
 export type MuiTableAction =
  | { type: 'resetFilter' }
- | { type: 'setFilter', columnId: string, filter: ValueType<OptionTypeBase>}
+ | { type: 'setFilter', columnId: string|undefined, filter: ValueType<OptionTypeBase>}

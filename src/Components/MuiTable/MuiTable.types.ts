@@ -27,6 +27,10 @@ export interface MuiTableProps {
    */
   pageCount?: number;
   /**
+   * User provided override which sets the Page index to 0 when sorting. Default to false.
+   */
+  resetPageIndexOnSort?: boolean;
+  /**
    * Callback function that triggers when a page has changed. 
    */
   onChangePage?:(
@@ -54,7 +58,7 @@ export interface MuiTableProps {
    * Callback function that triggers when filter(s) are selected. 
    */
   onFilterChange?: (
-    selectedRows: Map<string, ValueType<OptionTypeBase> | null>
+    selectedRows: Map<string|undefined, ValueType<OptionTypeBase> | null>
   ) => void;
   /**
    * Boolean value as whether rows are selectable.

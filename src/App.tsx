@@ -99,7 +99,7 @@ const App: React.FC = () => {
   const fetchData = React.useCallback((pageIndex: number) => {
     // Give this fetch an ID
     const fetchID = ++fetchIdRef.current
-
+    global.console.log("Fetching Data")
     // Set the loading state
     //setLoading(true)
 
@@ -107,19 +107,18 @@ const App: React.FC = () => {
     setTimeout(() => {
       // Only update the data if this is the latest fetch
       if (fetchID === fetchIdRef.current) {
-        const startRow = 50 * pageIndex
-        const endRow = startRow + 50;
+        const startRow = 10 * pageIndex
+        const endRow = startRow + 10;
         setData(serverData.slice(startRow, endRow))
 
         // Your server could send back total page count.
         // For now we'll just fake it, too
-        setPageCount(Math.ceil(serverData.length / 50))
+        setPageCount(Math.ceil(serverData.length / 10))
 
         //setLoading(false)
       }
     }, 1000)
   }, [])
-
 
   // This will get called when the user click sort
   // You could fetch your data from literally anywhere,
@@ -139,6 +138,7 @@ const App: React.FC = () => {
 
         // Sort Logic goes here
         //setLoading(false)
+        setData(serverData.slice(0, 10))
       }
     }, 1000)
   }, [])
@@ -146,10 +146,9 @@ const App: React.FC = () => {
   // This will get called when the user click sort
   // You could fetch your data from literally anywhere,
   // even a server. But for this example, we'll just fake it.
-  const filterData = React.useCallback((filterOptions: Map<string, ValueType<OptionTypeBase> | null>) => {
+  const filterData = React.useCallback((filterOptions: Map<string|undefined, ValueType<OptionTypeBase> | null>) => {
     global.console.log(filterOptions);
   }, [])
-
 
   return (
     <div>
@@ -157,12 +156,13 @@ const App: React.FC = () => {
 
       <MuiTable columns={columns}
         data={data}
-        initialPageSize={50}
+        initialPageSize={10}
         onChangePage={fetchData}
         pageCount={pageCount}
         serverSide={true}
         onColumnSortChange={sortData}
-        onFilterChange={filterData} />
+        onFilterChange={filterData} 
+        />
     </div>
   );
 }

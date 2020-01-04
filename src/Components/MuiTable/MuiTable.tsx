@@ -13,6 +13,7 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
   const {
     columns,
     data,
+    resetPageIndexOnSort,
     // Default is 30
     initialPageSize = 30,
     rowsPerPageOptions,
@@ -41,6 +42,7 @@ export const MuiTable: FC<MuiTableProps> = (props) => {
             onFilterChange={onFilterChange}
             onRowsSelect={onRowsSelect}
             isRowSelectable={isRowSelectable}
+            resetPageIndexOnSort={resetPageIndexOnSort}
         >
         </MuiTableContent>
     </MuiTableProvider>

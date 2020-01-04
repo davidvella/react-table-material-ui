@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, useContext, useEffect } from 'react';
 import {
   useTable,
   useSortBy,
@@ -6,7 +6,6 @@ import {
   TableInstance,
   UseFiltersColumnProps,
   ColumnInstance,
-  UseResizeColumnsHeaderProps,
   usePagination,
   useRowSelect,
   Column,
@@ -39,7 +38,6 @@ import { MuiTableContext } from './MuiTableProvider';
 interface TableColumn<D extends object = {}>
   extends ColumnInstance<D>,
   UseSortByColumnProps<D>,
-  UseResizeColumnsHeaderProps<D>,
   UseFiltersColumnProps<D> { }
 
 /**
@@ -90,6 +88,7 @@ export const MuiTableContent: FC<MuiTableProps> = (props) => {
   const {
     columns: columnsDef,
     data,
+    resetPageIndexOnSort = false,
     // Default is 30
     initialPageSize,
     rowsPerPageOptions,
@@ -129,62 +128,66 @@ export const MuiTableContent: FC<MuiTableProps> = (props) => {
     previousPage,
     setPageSize,
     selectedFlatRows,
-    state: { pageSize, pageIndex, sortBy, selectedRowPaths },
+    gotoPage,
+    state: { pageSize, pageIndex, sortBy },
   } = useTable<object>(
     {
       columns,
       data,
-      initialState: { pageSize: initialPageSize, pageIndex: 0 }, // Pass our hoisted table state
+      initialState: { pageSize: initialPageSize }, // Pass our hoisted table state
       manualPagination: serverSide, // Tell the usePagination
       // hook that we'll handle our own data fetching
       // This means we'll also have to provide our own
       // pageCount.
       pageCount: pageCount,
-      manualSorting: serverSide,// Tell the useSortBy
+      manualSortBy: serverSide,// Tell the useSortBy
       // hook that we'll sort our own data 
       // This means we'll also have to provide our own
       // pageCount.
     },
     useSortBy,
     usePagination,
-    useRowSelect,
+    useRowSelect
   ) as TableInstance<object>;
   const classes = useStyles();
 
   // Listen for changes in column state and use the state to fetch new data
-  React.useEffect(() => {
+  useEffect(() => {
     if (onColumnSortChange) {
       onColumnSortChange(sortBy)
+      if(resetPageIndexOnSort){
+        gotoPage(0);
+      }
     }
-  }, [onColumnSortChange, sortBy])
+  }, [onColumnSortChange, sortBy,gotoPage,resetPageIndexOnSort])
 
   // Listen for changes in pagination and use the state to fetch our new data
-  React.useEffect(() => {
+  useEffect(() => {
     if (onChangePage) {
       onChangePage(pageIndex)
     }
   }, [onChangePage, pageIndex])
 
   // Listen for changes in filterValues and use the state to fetch our new data
-  React.useEffect(() => {
+  useEffect(() => {
     if (onFilterChange) {
       onFilterChange(filterValues)
     }
   }, [onFilterChange, filterValues])
 
   // Listen for changes in pageSize and use the state to fetch our new data
-  React.useEffect(() => {
+  useEffect(() => {
     if (onChangeRowsPerPage) {
       onChangeRowsPerPage(pageSize)
     }
   }, [onChangeRowsPerPage, pageSize])
 
   // Listen for changes in row selection and send data back to the user.
-  React.useEffect(() => {
+  useEffect(() => {
     if (onRowsSelect) {
       onRowsSelect(selectedFlatRows);
     }
-  }, [onRowsSelect, selectedFlatRows, selectedRowPaths])
+  }, [onRowsSelect, selectedFlatRows])
 
   // Render the UI for your table
   return (
