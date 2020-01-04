@@ -42,21 +42,24 @@ const App: React.FC = () => {
         accessor: 'firstName',
         id: "1",
         filterLabel: 'First Name',
-        loadOptions: promiseOptions
+        loadOptions: promiseOptions,
+        disableFilters: true
       },
       {
         Header: 'Last Name',
         accessor: 'lastName',
         id: "2",
         filterLabel: 'Last Name',
-        loadOptions: promiseOptions
+        loadOptions: promiseOptions,
+        disableFilters: true
       },
       {
         Header: 'Age',
         accessor: 'age',
         Cell: ({ cell: { value } }: CellProps<object>) => <div>{value}</div>,
         id: "3",
-        loadOptions: promiseOptions
+        loadOptions: promiseOptions,
+        disableFilters: true
       },
       {
         Header: 'Visits',
@@ -69,7 +72,7 @@ const App: React.FC = () => {
         Header: 'Status',
         accessor: 'status',
         id: "5",
-        loadOptions: promiseOptions
+        loadOptions: promiseOptions,
       },
       {
         Header: 'Profile Progress',
@@ -80,7 +83,8 @@ const App: React.FC = () => {
           </span>)
         },
         loadOptions: promiseOptions,
-        isMulti: true
+        isMulti: true,
+        disableFilters: true
       },
     ],
     []

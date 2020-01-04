@@ -1,0 +1,1 @@
+export const SELECT_COL_ID = 'selection'

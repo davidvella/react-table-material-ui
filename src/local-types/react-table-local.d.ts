@@ -27,6 +27,11 @@ declare module "react-table" {
       UseSortByState<D>,
       UseRowSelectState<D> {}
 
+  export interface UseTableColumnProps<D extends object> {
+    
+    getToggleHiddenProps: () => any;
+  }
+
   export interface Row<D extends object = {}> extends UseRowSelectRowProps<D> {}
 
   export interface Column<D extends object = {}>

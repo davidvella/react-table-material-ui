@@ -31,6 +31,7 @@ import { MuiTableProps } from './MuiTable.types'
 import { MuiTablePagination } from '../MuiTablePagination/MuiTablePagination';
 import { MuiTableToolbarActions } from './MuiTableToolbarActions';
 import { MuiTableContext } from './MuiTableProvider';
+import {SELECT_COL_ID} from './constants'
 
 /**
  * TypeScript Interface needed to compile.
@@ -38,7 +39,7 @@ import { MuiTableContext } from './MuiTableProvider';
 interface TableColumn<D extends object = {}>
   extends ColumnInstance<D>,
   UseSortByColumnProps<D>,
-  UseFiltersColumnProps<D> { }
+  UseFiltersColumnProps<D>{ }
 
 /**
  * Styles for the Table
@@ -115,6 +116,7 @@ export const MuiTableContent: FC<MuiTableProps> = (props) => {
 
   // Use the state and functions returned from useTable to build your UI
   const {
+    flatColumns,
     getTableProps,
     getTableBodyProps,
     headerGroups,
@@ -155,11 +157,11 @@ export const MuiTableContent: FC<MuiTableProps> = (props) => {
   useEffect(() => {
     if (onColumnSortChange) {
       onColumnSortChange(sortBy)
-      if(resetPageIndexOnSort){
+      if (resetPageIndexOnSort) {
         gotoPage(0);
       }
     }
-  }, [onColumnSortChange, sortBy,gotoPage,resetPageIndexOnSort])
+  }, [onColumnSortChange, sortBy, gotoPage, resetPageIndexOnSort])
 
   // Listen for changes in pagination and use the state to fetch our new data
   useEffect(() => {
@@ -195,8 +197,8 @@ export const MuiTableContent: FC<MuiTableProps> = (props) => {
       <div className={classes.tableWrapper}>
         <Toolbar>
           <Grid container>
-            <MuiTableToolbarActions />
-          </Grid>
+            <MuiTableToolbarActions columns={flatColumns} />
+          </Grid>          
         </Toolbar>
         <Table {...getTableProps()}>
           <TableHead>
@@ -275,7 +277,7 @@ const columnSelectionDecorator = (columns: Column<object>[], isRowSelectable: bo
 // Let's make a column for selection
 const selectionColumn: Column<object> =
 {
-  id: 'selection',
+  id: SELECT_COL_ID,
   // The header can use the table's getToggleAllRowsSelectedProps method
   // to render a checkbox
   Header: ({ getToggleAllRowsSelectedProps, isAllRowsSelected }: CellProps<any>) => (<div>
