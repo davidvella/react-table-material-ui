@@ -150,7 +150,7 @@ const App: React.FC = () => {
   // This will get called when the user click sort
   // You could fetch your data from literally anywhere,
   // even a server. But for this example, we'll just fake it.
-  const filterData = React.useCallback((filterOptions: Map<string|undefined, ValueType<OptionTypeBase> | null>) => {
+  const filterData = React.useCallback((filterOptions: Map<string | undefined, ValueType<OptionTypeBase> | null>) => {
     global.console.log(filterOptions);
   }, [])
 
@@ -165,8 +165,9 @@ const App: React.FC = () => {
         pageCount={pageCount}
         serverSide={true}
         onColumnSortChange={sortData}
-        onFilterChange={filterData} 
-        />
+        onFilterChange={filterData}
+        resetPageIndexOnSort={true}
+      />
     </div>
   );
 }

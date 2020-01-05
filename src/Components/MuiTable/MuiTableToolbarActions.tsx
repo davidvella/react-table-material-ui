@@ -56,10 +56,10 @@ export const MuiTableToolbarActions: FC<IMuiTableToolbarActionProps> = (props) =
                         </Box>
                     </Box>)}
                 <Box p={1} className={classes.lastItem}>
-                    <Tooltip title={"Show Columns"} disableFocusListener>
+                    <Tooltip title={"View Columns"} disableFocusListener>
                         <IconButton
-                            data-testid={"Show Columns-iconButton"}
-                            aria-label={"Show Columns"}
+                            data-testid={"View Columns-iconButton"}
+                            aria-label={"View Columns"}
                             onClick={(event: any) => updateAnchorElColumns(event.currentTarget)}
                         >
                             <ViewColumnIcon />

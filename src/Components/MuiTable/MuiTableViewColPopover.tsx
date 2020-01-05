@@ -11,7 +11,7 @@ import {
     Popover,
     FormControlLabel
 } from '@material-ui/core';
-import {SELECT_COL_ID} from './constants'
+import { SELECT_COL_ID } from './constants'
 
 /**
  * Styles for the Table
@@ -85,13 +85,13 @@ export const MuiTableViewColPopover: FC<IMuiTableViewColProps> = (props) => {
             }}
         >
             <FormControl component={'fieldset'} className={classes.root} aria-label={"Show Columns"}>
-            <Typography variant="caption" className={classes.title}>
+                <Typography variant="caption" className={classes.title}>
                     Show Columns
-            </Typography>
+                </Typography>
                 <FormGroup className={classes.formGroup}>
                     {columns.map((column, index) => {
                         return (
-                            column.id !== SELECT_COL_ID && 
+                            column.id !== SELECT_COL_ID &&
                             (<FormControlLabel
                                 key={index}
                                 classes={{

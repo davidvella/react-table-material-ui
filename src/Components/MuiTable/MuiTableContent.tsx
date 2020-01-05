@@ -31,7 +31,7 @@ import { MuiTableProps } from './MuiTable.types'
 import { MuiTablePagination } from '../MuiTablePagination/MuiTablePagination';
 import { MuiTableToolbarActions } from './MuiTableToolbarActions';
 import { MuiTableContext } from './MuiTableProvider';
-import {SELECT_COL_ID} from './constants'
+import { SELECT_COL_ID } from './constants'
 
 /**
  * TypeScript Interface needed to compile.
@@ -39,7 +39,7 @@ import {SELECT_COL_ID} from './constants'
 interface TableColumn<D extends object = {}>
   extends ColumnInstance<D>,
   UseSortByColumnProps<D>,
-  UseFiltersColumnProps<D>{ }
+  UseFiltersColumnProps<D> { }
 
 /**
  * Styles for the Table
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 /**
- * ALternate Row Colours for usability.
+ * Alternate Row Colours for usability.
  */
 const StyledTableRow = withStyles((theme: Theme) =>
   createStyles({
@@ -198,7 +198,7 @@ export const MuiTableContent: FC<MuiTableProps> = (props) => {
         <Toolbar>
           <Grid container>
             <MuiTableToolbarActions columns={flatColumns} />
-          </Grid>          
+          </Grid>
         </Toolbar>
         <Table {...getTableProps()}>
           <TableHead>
@@ -235,8 +235,8 @@ export const MuiTableContent: FC<MuiTableProps> = (props) => {
                   <StyledTableRow {...row.getRowProps()} className={row.isSelected ? classes.selectedRow : ''} hover={true}>
                     {row.cells.map(cell => {
                       return (
-                        <TableCell {...cell.getCellProps()} tabIndex={0}>
-                          {cell.render('Cell')}
+                        <TableCell {...cell.getCellProps()}>
+                            {cell.render('Cell')}
                         </TableCell>
                       )
                     })}

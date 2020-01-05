@@ -6,5 +6,4 @@ export interface IMuiTableToolbarActionProps extends HTMLAttributes<HTMLDivEleme
      * Columns used to describe table. Must be an array of objects describing a column
      */
     columns: ColumnInstance<object>[];
-
 }
