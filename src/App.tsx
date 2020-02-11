@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import makeData from './makeData';
 import { CellProps, SortingRule, Column } from 'react-table';
 import { MuiTable } from './Components/MuiTable/MuiTable';
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, MuiThemeProvider } from '@material-ui/core';
 import { OptionTypeBase, ValueType } from "react-select";
+
+import { darkTheme } from './theme';
+import { MuiChipSelect } from './Components/MuiChipSelect/MuiChipSelect';
+
 const serverData = makeData(1000);
 
 export const colourOptions = [
   { value: 'ocean', label: 'Ocean', color: '#00B8D9', isFixed: true },
-  { value: 'blue', label: 'Blue', color: '#0052CC', isDisabled: true },
+  { value: 'blue', label: 'Blue', color: '#0052CC', disabled: true },
   { value: 'purple', label: 'Purple', color: '#5243AA' },
   { value: 'red', label: 'Red', color: '#FF5630', isFixed: true },
   { value: 'orange', label: 'Orange', color: '#FF8B00' },
@@ -153,21 +157,27 @@ const App: React.FC = () => {
   const filterData = React.useCallback((filterOptions: Map<string | undefined, ValueType<OptionTypeBase> | null>) => {
     global.console.log(filterOptions);
   }, [])
+  
+  const [fruits, setFruits] = useState([colourOptions[0]]);
+
 
   return (
     <div>
       <CssBaseline />
+      <MuiThemeProvider theme={darkTheme}>
+        <MuiChipSelect value={fruits as any} options={colourOptions as any} onChange={setFruits} multi/>
+        <MuiTable columns={columns}
+          data={data}
+          initialPageSize={10}
+          onChangePage={fetchData}
+          pageCount={pageCount}
+          serverSide={true}
+          onColumnSortChange={sortData}
+          onFilterChange={filterData}
+          resetPageIndexOnSort={true}
+        />
+      </MuiThemeProvider>
 
-      <MuiTable columns={columns}
-        data={data}
-        initialPageSize={10}
-        onChangePage={fetchData}
-        pageCount={pageCount}
-        serverSide={true}
-        onColumnSortChange={sortData}
-        onFilterChange={filterData}
-        resetPageIndexOnSort={true}
-      />
     </div>
   );
 }
